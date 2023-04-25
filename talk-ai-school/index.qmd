@@ -5,12 +5,17 @@ format:
   revealjs: 
     theme: night
     css: styles.css
+    transition: slide
 author: Sebastian Sauer
 date: 2023-05-02
 ---
 
 
+## Link zu den Folien
 
+:::{.centered}
+![](img/qrcode.png)
+:::
 
 
 # Selbstwirksamkeit erfahren
@@ -125,10 +130,25 @@ Quelle: ChatGPT, 2023-04-25
 
 ## Fallstudie Spotify
 
+::::{.columns}
+
+:::{.column}
+
+![](img/spotify.png)
+
+:::
+
+:::{.column}
+
 >   Du arbeitest bei Spotify und willst herausfinden, welche Songs in die gleiche Playlist gehören sollten. Um ähnliche Songs in eine Playlist zu ordnen, vergleichst du einige Merkmale der Songs wie "Tanzbarkeit" und "Tempo".
 
 
 [Quelle](https://towardsdatascience.com/k-means-clustering-and-pca-to-categorize-music-by-similar-audio-features-df09c93e8b64)
+:::
+
+::::
+
+
 
 ## Keine Syntax, sondern "Lego-Blöcke"
 
