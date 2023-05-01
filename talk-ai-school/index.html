@@ -30,7 +30,26 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css" id="theme">
   <link rel="stylesheet" href="styles.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -344,12 +363,16 @@ Sebastian Sauer
 <h2>Link zu den Folien</h2>
 <div class="centered">
 <p><img data-src="img/qrcode.png"></p>
+<p><a href="https://sebastiansauer.github.io/talks/talk-ai-school/" class="uri">https://sebastiansauer.github.io/talks/talk-ai-school/</a></p>
 </div>
 </section>
 <section>
-<section id="selbstwirksamkeit-erfahren" class="title-slide slide level1 center">
-<h1>Selbstwirksamkeit erfahren</h1>
-
+<section id="ki-lernen-in-der-schule" class="title-slide slide level1 center">
+<h1>KI lernen in der Schule</h1>
+<!-- ## {.center} -->
+<!-- :::{#title-slide .center} -->
+<!-- ### Selbstwirksamkeit erfahren  -->
+<!-- ::: -->
 </section>
 <section id="zukunftstechnologie-ki" class="slide level2">
 <h2>Zukunftstechnologie KI</h2>
@@ -357,13 +380,56 @@ Sebastian Sauer
 <p><img data-src="img/chatgpt2.jpg"></p>
 </div>
 </section>
-<section id="zukunftstechnologie-ki-1" class="slide level2">
-<h2>Zukunftstechnologie KI</h2>
+<section id="auch-zukunftstechnologie-ki" class="slide level2">
+<h2>Auch Zukunftstechnologie KI</h2>
 
 <img data-src="img/chatgpt1.png" class="r-stretch"><p>Quelle: ChatGPT, 2023-04-25</p>
 </section>
-<section id="tools" class="slide level2">
-<h2>Tools</h2>
+<section id="fragen-wir-die-ki" class="slide level2">
+<h2>Fragen wir die KI</h2>
+<blockquote>
+<p>👨‍🏫 Hey KI, wie bringt man Schülern KI bei?</p>
+</blockquote>
+<blockquote>
+<p>🤖 Äh, öh, ja!</p>
+</blockquote>
+<p><br> <br></p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="chatgpt"><a href="https://chat.openai.com/">ChatGPT</a></h3>
+<p><a href="https://chat.openai.com/c/808b98be-c184-44ca-badb-696981ac60a9">Antwort von ChatGPT</a></p>
+</div><div class="column" style="width:30%;">
+<h3 id="perplexity"><a href="https://www.perplexity.ai/">Perplexity</a></h3>
+<p><a href="https://www.perplexity.ai/search/8cf05dab-868f-463d-8b37-d01356c6e7c9">Antwort von Perplexity</a></p>
+</div><div class="column" style="width:30%;">
+<h3 id="elicit"><a href="https://elicit.org/">Elicit</a></h3>
+<p><a href="https://elicit.org/search?q=how+to+teach+artificial+intelligence+to+high-school+pupils%3F&amp;token=01GZBNRTT902MQ5DG7X45VA2SD">Antwort von Elicit</a></p>
+</div>
+</div>
+</section>
+<section id="anwenden-vs.-verstehen" class="slide level2">
+<h2>Anwenden vs.&nbsp;Verstehen</h2>
+<p><br> <br></p>
+<p><br></p>
+<div class="columns">
+<div class="column">
+<h4 id="anwenden">Anwenden</h4>
+<p>🛠️</p>
+</div><div class="column">
+<h4 id="verstehen">Verstehen</h4>
+<p>💡</p>
+</div>
+</div>
+</section>
+<section id="data-science-vs.-statisticians" class="slide level2">
+<h2>Data Science vs.&nbsp;Statisticians</h2>
+<p><br></p>
+<div class="centered">
+<iframe data-external="1" src="https://www.youtube.com/embed/uHGlCi9jOWY" width="700" height="400" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</div>
+</section>
+<section id="tools-auswahl" class="slide level2">
+<h2>Tools, Auswahl</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
@@ -422,7 +488,7 @@ Sebastian Sauer
 <section>
 <section id="ai-unplugged" class="title-slide slide level1 center">
 <h1>AI unplugged</h1>
-
+<p><br></p>
 </section>
 <section id="section" class="slide level2 centered">
 <h2></h2>
@@ -430,8 +496,8 @@ Sebastian Sauer
 <p><img data-src="https://imgs.xkcd.com/comics/trained_a_neural_net.png"></p>
 </div>
 </section>
-<section id="du-bist-tierpfleger-im-zoo" class="slide level2">
-<h2>Du bist Tierpfleger im Zoo</h2>
+<section id="wir-sind-tierpfleger-im-zoo" class="slide level2">
+<h2>Wir sind Tierpfleger im Zoo</h2>
 <blockquote>
 <p>Wir sind Tierpflegerin bzw. Tierpfleger in einem Zoo und für die Fütterung der Äffchen zuständig. Alle Äffchen sehen sehr süß aus, aber wir müssen aufpassen, denn manche Äffchen beißen. Von den Äffchen im Zoo wissen wir bereits, ob sie beißen. Allerdings werden bald neue Tiere zur Gruppe hinzukommen und wir müssen uns nun überlegen, wie wir herausfinden können, welche neuen Äffchen beißen und welche nicht – am besten ohne ihren Zähnen zu nahe zu kommen.</p>
 </blockquote>
@@ -464,18 +530,18 @@ Sebastian Sauer
 <h1>Workflow-basiert</h1>
 
 </section>
-<section id="google-teachable-machine" class="slide level2">
-<h2>Google Teachable Machine</h2>
-<div class="centered">
-<p><video data-src="img/prediction.mp4" width="400" controls=""><a href="img/prediction.mp4">Video</a></video></p>
-<p><a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a></p>
-</div>
-</section>
 <section id="sebastians-trainiert-die-maschine" class="slide level2">
 <h2>Sebastians trainiert die Maschine</h2>
 <div class="centered">
 <p><img data-src="img/gtm-se.png" style="width:70.0%"></p>
 <p><a href="https://teachablemachine.withgoogle.com/">Google Teachable Machine</a></p>
+</div>
+</section>
+<section id="google-teachable-machine" class="slide level2">
+<h2>Google Teachable Machine</h2>
+<div class="centered">
+<p><video data-src="img/prediction.mp4" width="400" controls=""><a href="img/prediction.mp4">Video</a></video></p>
+<p><a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a></p>
 </div>
 </section></section>
 <section>
@@ -486,9 +552,9 @@ Sebastian Sauer
 <section id="fallstudie-spotify" class="slide level2">
 <h2>Fallstudie Spotify</h2>
 <div class="columns">
-<div class="column">
+<div class="column" style="width:30%;">
 <p><img data-src="img/spotify.png"></p>
-</div><div class="column">
+</div><div class="column" style="width:70%;">
 <blockquote>
 <p>Du arbeitest bei Spotify und willst herausfinden, welche Songs in die gleiche Playlist gehören sollten. Um ähnliche Songs in eine Playlist zu ordnen, vergleichst du einige Merkmale der Songs wie “Tanzbarkeit” und “Tempo”.</p>
 </blockquote>
@@ -541,16 +607,53 @@ Sebastian Sauer
 <iframe title="vimeo-player" src="https://player.vimeo.com/video/343796347?h=2e75bcf3b9" width="640" height="360" frameborder="0" allowfullscreen="">
 </iframe>
 </div>
-</section>
-<section id="danke" class="slide level2">
-<h2>Danke</h2>
-<p><br> <br> <br></p>
-<div id="title-slide" class="center">
-<p>Sebastian Sauer,</p>
-<p>Hochschule Ansbach</p>
-</div>
-<div class="footer footer-default">
+</section></section>
+<section>
+<section id="abschluss" class="title-slide slide level1 center">
+<h1>Abschluss</h1>
 
+</section>
+<section id="lies-mich" class="slide level2">
+<h2>Lies mich</h2>
+<ul>
+<li><a href="https://ki-campus.org/front?locale=de">KI-Campus</a>: Die Lernplattform für Künstliche Intelligenz</li>
+<li>Überblicksarbeit zu No-Coding-Tools für Machinenlernen <span class="citation" data-cites="gresse_von_wangenheim_visual_2021">(<a href="#/literatur" role="doc-biblioref" onclick="">Gresse von Wangenheim et al. 2021</a>)</span></li>
+<li>AI-Unplugged: KI lernen ohne Compter <span class="citation" data-cites="seegerer_ai_nodate">(<a href="#/literatur" role="doc-biblioref" onclick="">Seegerer and Lindner, n.d.</a>)</span></li>
+<li>Hands-on AI Projects for the Classroom <span class="citation" data-cites="black_blair_hands-ai_nodate">(<a href="#/literatur" role="doc-biblioref" onclick="">Black Blair and Brooks-Young, n.d.</a>)</span></li>
+<li><a href="https://www.sciencebuddies.org/science-fair-projects/project-ideas/artificial-intelligence">Science Buddies AI Projects for the Classroom</a></li>
+<li><a href="https://www.iste.org/areas-of-focus/AI-in-education">AI in Education Initiative</a></li>
+</ul>
+</section>
+<section id="das-wars-für-heute" class="slide level2">
+<h2>Das war’s für heute 👋</h2>
+<p><br> <a href="https://sebastiansauer.github.io/talks/talk-ai-school/" class="uri">https://sebastiansauer.github.io/talks/talk-ai-school/</a> <br></p>
+<div class="columns" style="display: flex !important; height: 90%;">
+<div class="column">
+<p><img data-src="img/qrcode.png" style="width:70.0%"></p>
+<p>Link zu den Folien</p>
+</div><div class="column" style="width:60%;">
+<p> Sebastian Sauer,</p>
+<p><br></p>
+<p>Hochschule Ansbach</p>
+<p>sebastian.sauer@hs-ansbach.de</p>
+</div>
+</div>
+</section>
+<section id="literatur" class="slide level2 smaller scrollable">
+<h2>Literatur</h2>
+<div class="footer footer-default">
+<p><a href="https://sebastiansauer.github.io/talks/talk-ai-school/">Maschinelles Lernen ohne Programmieren</a></p>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-black_blair_hands-ai_nodate" class="csl-entry" role="listitem">
+Black Blair, Nancye, and Susan Brooks-Young. n.d. <span>“Hands-<span>On AI Projects</span> for the <span>Classroom</span>.”</span> <span>The International Society for Technology in Education (ISTE)</span>. <a href="https://cdn.iste.org/www-root/Libraries/Documents%20%26%20Files/Artificial%20Intelligence/AIGDEL_0820-red.pdf">https://cdn.iste.org/www-root/Libraries/Documents%20%26%20Files/Artificial%20Intelligence/AIGDEL_0820-red.pdf</a>.
+</div>
+<div id="ref-gresse_von_wangenheim_visual_2021" class="csl-entry" role="listitem">
+Gresse von Wangenheim, Christiane, Jean C. R. Hauck, Fernando S. Pacheco, and Matheus F. Bertonceli Bueno. 2021. <span>“Visual Tools for Teaching Machine Learning in <span>K-12</span>: <span>A</span> Ten-Year Systematic Mapping.”</span> <em>Education and Information Technologies</em> 26 (5): 5733–78. <a href="https://doi.org/10.1007/s10639-021-10570-8">https://doi.org/10.1007/s10639-021-10570-8</a>.
+</div>
+<div id="ref-seegerer_ai_nodate" class="csl-entry" role="listitem">
+Seegerer, Stefan, and Annabell Lindner. n.d. <span>“<span>AI</span> Unplugged.”</span> <span>Professur für Didaktik der Informatik Friedrich-Alexander-Universität Erlangen-Nürnberg</span>. <a href="https://www.aiunplugged.org/">https://www.aiunplugged.org/</a>.
+</div>
 </div>
 </section></section>
     </div>
@@ -605,7 +708,7 @@ Sebastian Sauer
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',

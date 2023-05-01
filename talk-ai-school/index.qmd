@@ -1,12 +1,15 @@
 ---
 title: "Maschinelles Lernen ohne Programmieren"
 subtitle: "Ein sanfter Einstieg in die KI"
+bibliography: /Users/sebastiansaueruser/Google Drive/Literatur/refmgt/library-ses.bib
 format:
   revealjs: 
     theme: night
     css: styles.css
     transition: slide
 author: Sebastian Sauer
+footer: "[Maschinelles Lernen ohne Programmieren](https://sebastiansauer.github.io/talks/talk-ai-school/)"
+slide-number: true
 date: 2023-05-02
 ---
 
@@ -15,11 +18,23 @@ date: 2023-05-02
 
 :::{.centered}
 ![](img/qrcode.png)
+
+<https://sebastiansauer.github.io/talks/talk-ai-school/>
+
 :::
 
 
-# Selbstwirksamkeit erfahren
+# KI lernen in der Schule
 
+
+
+<!-- ## {.center} -->
+
+<!-- :::{#title-slide .center} -->
+
+<!-- ### Selbstwirksamkeit erfahren  -->
+
+<!-- ::: -->
 
 
 ## Zukunftstechnologie KI
@@ -28,17 +43,104 @@ date: 2023-05-02
 ![](img/chatgpt2.jpg)
 :::
 
-## Zukunftstechnologie KI
+## Auch Zukunftstechnologie KI
 
 
 ![](img/chatgpt1.png)
 
 
+
+
 Quelle: ChatGPT, 2023-04-25
 
 
+## Fragen wir die KI
 
-## Tools
+>   👨‍🏫 Hey KI, wie bringt man Schülern KI bei?
+
+>   🤖 Äh, öh, ja!
+
+
+
+</br>
+</br>
+
+
+::::{.columns}
+
+:::{.column width="30%"}
+
+### [ChatGPT](https://chat.openai.com/)
+
+[Antwort von ChatGPT](https://chat.openai.com/c/808b98be-c184-44ca-badb-696981ac60a9)
+
+:::
+
+:::{.column width="30%"}
+
+### [Perplexity](https://www.perplexity.ai/)
+
+[Antwort von Perplexity](https://www.perplexity.ai/search/8cf05dab-868f-463d-8b37-d01356c6e7c9)
+
+
+:::
+
+:::{.column width="30%"}
+
+### [Elicit](https://elicit.org/)
+
+
+[Antwort von Elicit](https://elicit.org/search?q=how+to+teach+artificial+intelligence+to+high-school+pupils%3F&token=01GZBNRTT902MQ5DG7X45VA2SD)
+
+:::
+
+::::
+
+
+
+## Anwenden vs. Verstehen
+
+
+</br>
+</br>
+
+</br>
+
+
+::::{.columns}
+:::{.column}
+
+#### Anwenden 
+
+🛠️
+
+:::
+:::{.column}
+#### Verstehen 
+
+💡
+
+:::
+::::
+
+
+## Data Science vs. Statisticians 
+
+
+
+</br>
+
+
+:::{.centered}
+
+
+{{< video https://www.youtube.com/watch?v=uHGlCi9jOWY width=700 height=400 >}}
+
+:::
+
+
+
+## Tools, Auswahl
 
 
 ::: {layout-ncol=3}
@@ -66,6 +168,8 @@ Quelle: ChatGPT, 2023-04-25
 
 # AI unplugged
 
+</br>
+
 
 ## {.centered}
 
@@ -76,7 +180,7 @@ Quelle: ChatGPT, 2023-04-25
 
 
 
-## Du bist Tierpfleger im Zoo
+## Wir sind Tierpfleger im Zoo
 
 
 >   Wir sind Tierpflegerin bzw. Tierpfleger in einem Zoo und für die Fütterung der Äffchen zuständig. Alle Äffchen sehen sehr süß aus, aber wir müssen aufpassen, denn manche Äffchen beißen. Von den Äffchen im Zoo wissen wir bereits, ob sie beißen. Allerdings werden bald neue Tiere zur Gruppe hinzukommen und wir müssen uns nun überlegen, wie wir herausfinden können, welche neuen Äffchen beißen und welche nicht – am besten ohne ihren Zähnen zu nahe zu kommen.
@@ -101,6 +205,18 @@ Quelle: ChatGPT, 2023-04-25
 # Workflow-basiert
 
 
+
+
+## Sebastians trainiert die Maschine
+
+:::{.centered}
+![](img/gtm-se.png){width=70%}
+
+[Google Teachable Machine](https://teachablemachine.withgoogle.com/)
+:::
+
+
+
 ## Google Teachable Machine
 
 
@@ -115,15 +231,6 @@ Quelle: ChatGPT, 2023-04-25
 
 
 
-## Sebastians trainiert die Maschine
-
-:::{.centered}
-![](img/gtm-se.png){width=70%}
-
-[Google Teachable Machine](https://teachablemachine.withgoogle.com/)
-:::
-
-
 
 # Block-basiert
 
@@ -132,13 +239,13 @@ Quelle: ChatGPT, 2023-04-25
 
 ::::{.columns}
 
-:::{.column}
+:::{.column width="30%"}
 
 ![](img/spotify.png)
 
 :::
 
-:::{.column}
+:::{.column width="70%"}
 
 >   Du arbeitest bei Spotify und willst herausfinden, welche Songs in die gleiche Playlist gehören sollten. Um ähnliche Songs in eine Playlist zu ordnen, vergleichst du einige Merkmale der Songs wie "Tanzbarkeit" und "Tempo".
 
@@ -230,20 +337,57 @@ Quelle: ChatGPT, 2023-04-25
 
 
 
+# Abschluss
+
+## Lies mich
+
+- [KI-Campus](https://ki-campus.org/front?locale=de): Die Lernplattform für Künstliche Intelligenz
+- Überblicksarbeit zu No-Coding-Tools für Machinenlernen [@gresse_von_wangenheim_visual_2021]
+- AI-Unplugged: KI lernen ohne Compter [@seegerer_ai_nodate]
+- Hands-on AI Projects for the Classroom [@black_blair_hands-ai_nodate]
+- [Science Buddies AI Projects for the Classroom](https://www.sciencebuddies.org/science-fair-projects/project-ideas/artificial-intelligence)
+- [AI in Education Initiative](https://www.iste.org/areas-of-focus/AI-in-education)
 
 
 
-## Danke
+
+## Das war's für heute 👋  
 
 </br>
-</br>
+<https://sebastiansauer.github.io/talks/talk-ai-school/>
 </br>
 
-:::{#title-slide .center}
-Sebastian Sauer,
+:::: {.columns style='display: flex !important; height: 90%;'}
+
+:::{.column}
+
+
+![](img/qrcode.png){width="70%"}
+
+Link zu den Folien
+
+:::
+:::{.column width="60%"}
+
+{{< fa user-astronaut >}} Sebastian Sauer,
+
+</br>
 
 Hochschule Ansbach
+
+
+
+sebastian.sauer@hs-ansbach.de
 :::
+::::
+
+
+
+## Literatur
+
+
+
+
 
 
 
