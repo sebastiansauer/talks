@@ -347,7 +347,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Maschinelles Lernen ohne Programmieren</h1>
-  <p class="subtitle">Ein sanfter Einstieg in die KI</p>
+  <p class="subtitle">Ein sanfter Einstieg in die KI<br>CC-BY</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -641,9 +641,6 @@ Sebastian Sauer
 </section>
 <section id="literatur" class="slide level2 smaller scrollable">
 <h2>Literatur</h2>
-<div class="footer footer-default">
-<p><a href="https://sebastiansauer.github.io/talks/talk-ai-school/">Maschinelles Lernen ohne Programmieren</a></p>
-</div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-black_blair_hands-ai_nodate" class="csl-entry" role="listitem">
 Black Blair, Nancye, and Susan Brooks-Young. n.d. <span>“Hands-<span>On AI Projects</span> for the <span>Classroom</span>.”</span> <span>The International Society for Technology in Education (ISTE)</span>. <a href="https://cdn.iste.org/www-root/Libraries/Documents%20%26%20Files/Artificial%20Intelligence/AIGDEL_0820-red.pdf">https://cdn.iste.org/www-root/Libraries/Documents%20%26%20Files/Artificial%20Intelligence/AIGDEL_0820-red.pdf</a>.
@@ -654,6 +651,28 @@ Gresse von Wangenheim, Christiane, Jean C. R. Hauck, Fernando S. Pacheco, and Ma
 <div id="ref-seegerer_ai_nodate" class="csl-entry" role="listitem">
 Seegerer, Stefan, and Annabell Lindner. n.d. <span>“<span>AI</span> Unplugged.”</span> <span>Professur für Didaktik der Informatik Friedrich-Alexander-Universität Erlangen-Nürnberg</span>. <a href="https://www.aiunplugged.org/">https://www.aiunplugged.org/</a>.
 </div>
+</div>
+</section>
+<section id="technische-details" class="slide level2">
+<h2>Technische Details</h2>
+<p>Letztes Upate 2023-05-01 15:37:30. <br></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> setting  value
+ version  R version 4.2.1 (2022-06-23)
+ os       macOS Big Sur ... 10.16
+ system   x86_64, darwin17.0
+ ui       X11
+ language (EN)
+ collate  en_US.UTF-8
+ ctype    en_US.UTF-8
+ tz       Europe/Berlin
+ date     2023-05-01
+ pandoc   2.19.2 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/ (via rmarkdown)</code></pre>
+</div>
+</div>
+<div class="footer footer-default">
+<p><a href="https://sebastiansauer.github.io/talks/talk-ai-school/">Maschinelles Lernen ohne Programmieren</a></p>
 </div>
 </section></section>
     </div>
@@ -867,6 +886,44 @@ Seegerer, Stefan, and Annabell Lindner. n.d. <span>“<span>AI</span> Unplugged.
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

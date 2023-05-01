@@ -1,6 +1,6 @@
 ---
 title: "Maschinelles Lernen ohne Programmieren"
-subtitle: "Ein sanfter Einstieg in die KI"
+subtitle: "Ein sanfter Einstieg in die KI</br>CC-BY"
 bibliography: /Users/sebastiansaueruser/Google Drive/Literatur/refmgt/library-ses.bib
 format:
   revealjs: 
@@ -385,6 +385,23 @@ sebastian.sauer@hs-ansbach.de
 
 ## Literatur
 
+
+::: {#refs}
+:::
+
+
+
+## Technische Details
+
+Letztes Upate `r Sys.time()`.
+</br>
+
+```{r}
+#| echo: false
+
+sessioninfo::platform_info()
+
+```
 
 
 
