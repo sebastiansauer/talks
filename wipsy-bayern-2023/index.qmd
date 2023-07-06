@@ -1,14 +1,16 @@
 ---
-title: "WiPsy.HAWs.Bayern"
+title: "WiPsy.HAW.Bayern"
 #subtitle: "Ein sanfter Einstieg in die KI</br>CC-BY"
 bibliography: /Users/sebastiansaueruser/Google Drive/Literatur/refmgt/library-ses.bib
 format:
   revealjs: 
     theme: night
-    css: styles.css
-    transition: slide
+    menu:
+      side: left
+    slide-number: true
+    date-format: long
 author: Sebastian Sauer
-#footer: "[Maschinelles Lernen ohne Programmieren](https://sebastiansauer.github.io/talks/talk-ai-school/)"
+footer: "[WiPsy.HAW.Bayern](https://sebastiansauer.github.io/talks/wipsy-bayern-2023/)"
 slide-number: true
 date: today
 execute: 
@@ -19,14 +21,16 @@ editor_options:
 ---
 
 
+
+# Herzlich willkommen!
+
+
 ## Link zu den Folien
 
 :::{.centered}
-![](img/qrcode.png)<https://sebastiansauer.github.io/talks/talk-ai-school/>
+![](img/qr-talk.png)<https://sebastiansauer.github.io/talks/wipsy-bayern-2023/#/title-slide/>
 
 :::
-
-# Herzlich willkommen!
 
 
 
@@ -79,11 +83,71 @@ m <- leaflet() %>%
 m
 ```
 
+[Rohdaten](https://docs.google.com/spreadsheets/d/11th3IKxaSxhhWw9U4sv1wT5J0mTVN6eJeWbp0S9ngGA/edit?usp=sharing)
 
-# Umfrage: Profil Ihres Studiengangs
+## Profil Ihres Studiengangs
+
+Umfrage
 
 
 <https://forms.gle/kKAuG5wH9zqyTPjM9>
 
+:::{.centered}
 ![](img/qr-umfrage.png)
+:::
+
+
+## Umfrage - live
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfzH6jd84XzbOnDXwSgUo1nYSZYNnv0Rwrry3RfD5QZtQB2BQ/viewform?embedded=true" width="640" height="2719" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+
+
+
+## Das war's für heute 👋  
+
+</br>
+<https://sebastiansauer.github.io/talks/wipsy-bayern-2023>
+</br>
+
+:::: {.columns style='display: flex !important; height: 90%;'}
+
+:::{.column}
+
+
+![](img/qr-talk.png){width="70%"}
+
+Link zu den Folien
+
+:::
+:::{.column width="60%"}
+
+{{< fa user-astronaut >}} Sebastian Sauer,
+
+</br>
+
+Hochschule Ansbach
+
+
+
+sebastian.sauer@hs-ansbach.de
+:::
+::::
+
+
+
+## Technische Details
+
+Letztes Update `r Sys.time()`.
+</br>
+
+```{r}
+#| echo: false
+
+sessioninfo::platform_info()
+
+```
+
+
+
 
