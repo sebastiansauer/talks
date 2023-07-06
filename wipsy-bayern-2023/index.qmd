@@ -1,0 +1,89 @@
+---
+title: "WiPsy.HAWs.Bayern"
+#subtitle: "Ein sanfter Einstieg in die KI</br>CC-BY"
+bibliography: /Users/sebastiansaueruser/Google Drive/Literatur/refmgt/library-ses.bib
+format:
+  revealjs: 
+    theme: night
+    css: styles.css
+    transition: slide
+author: Sebastian Sauer
+#footer: "[Maschinelles Lernen ohne Programmieren](https://sebastiansauer.github.io/talks/talk-ai-school/)"
+slide-number: true
+date: today
+execute: 
+  echo: false
+  warning: false
+editor_options: 
+  chunk_output_type: console
+---
+
+
+## Link zu den Folien
+
+:::{.centered}
+![](img/qrcode.png)<https://sebastiansauer.github.io/talks/talk-ai-school/>
+
+:::
+
+# Herzlich willkommen!
+
+
+
+## WiPsy in Bayern
+
+
+```{r libs-hideen}
+#| include: false
+library(tidyverse)
+```
+
+```{r}
+d <- read_csv("data/WiPsy-Bachelor-Bayern-Präsenz.csv")
+```
+
+
+```{r}
+#| eval: false
+library(sf)
+library(tmap)
+bavaria <- read_sf("/Users/sebastiansaueruser/datasets/geo_maps/Bayern/bavaria.shp")
+
+cities <-
+  d %>% 
+  select(Ort, lat, long) %>% 
+  st_as_sf(coords = c("long", "lat"), crs = 4326) %>%
+  st_cast("POINT")
+
+
+p1 <- tm_shape(bavaria) +
+  tm_polygons()
+
+p2 <- 
+  p1 + 
+  tm_shape(cities) +
+  tm_dots(size = .1, col = "red")
+
+p2
+ggsave(p2, filename = "bayern-wipsy.png", width = 10)
+```
+
+
+```{r}
+library(leaflet)
+
+m <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(lng = d$long, lat = d$lat)
+
+m
+```
+
+
+# Umfrage: Profil Ihres Studiengangs
+
+
+<https://forms.gle/kKAuG5wH9zqyTPjM9>
+
+![](img/qr-umfrage.png)
+
