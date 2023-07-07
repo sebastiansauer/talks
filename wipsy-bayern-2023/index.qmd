@@ -34,48 +34,27 @@ editor_options:
 
 
 
-## WiPsy in Bayern
 
 
 ```{r libs-hideen}
 #| include: false
 library(tidyverse)
-```
-
-```{r}
-d <- read_csv("data/WiPsy-Bachelor-Bayern-Präsenz.csv")
-```
-
-
-```{r}
-#| eval: false
-library(sf)
-library(tmap)
-bavaria <- read_sf("/Users/sebastiansaueruser/datasets/geo_maps/Bayern/bavaria.shp")
-
-cities <-
-  d %>% 
-  select(Ort, lat, long) %>% 
-  st_as_sf(coords = c("long", "lat"), crs = 4326) %>%
-  st_cast("POINT")
-
-
-p1 <- tm_shape(bavaria) +
-  tm_polygons()
-
-p2 <- 
-  p1 + 
-  tm_shape(cities) +
-  tm_dots(size = .1, col = "red")
-
-p2
-ggsave(p2, filename = "bayern-wipsy.png", width = 10)
-```
-
-
-```{r}
 library(leaflet)
+library(googlesheets4)
+library(ggokabeito)
+```
 
+```{r import-data}
+d_url <- "https://drive.google.com/uc?export=download&id=11th3IKxaSxhhWw9U4sv1wT5J0mTVN6eJeWbp0S9ngGA"
+d <- read_csv("data/WiPsy-Bachelor-Bayern-Präsenz.csv")
+d <- read_sheet(d_url)
+```
+
+
+## WiPsy in Bayern
+
+
+```{r map1}
 m <- leaflet() %>% 
   addTiles() %>% 
   addMarkers(lng = d$long, lat = d$lat)
@@ -84,6 +63,40 @@ m
 ```
 
 [Rohdaten](https://docs.google.com/spreadsheets/d/11th3IKxaSxhhWw9U4sv1wT5J0mTVN6eJeWbp0S9ngGA/edit?usp=sharing)
+
+
+## WiPsy staatliche HAW in Bayern
+
+```{r map2}
+d_staatlich <-
+  d %>% 
+  filter(staatlich == "staatlich")
+  
+m2 <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(lng = d_staatlich$long, lat = d_staatlich$lat)
+
+m2
+```
+
+[Rohdaten](https://docs.google.com/spreadsheets/d/11th3IKxaSxhhWw9U4sv1wT5J0mTVN6eJeWbp0S9ngGA/edit?usp=sharing)
+
+
+## Anzahl der Studienorte
+
+```{r}
+d %>% 
+  select(Ort, Hochschulname, Bachelor, staatlich) %>% 
+  count(staatlich) %>% 
+  ggplot(aes(x = staatlich, y = n)) +
+  geom_col(aes(fill = staatlich)) +
+  scale_fill_okabe_ito() +
+  labs(x = "",
+       fill = "") +
+ geom_label(aes(label = n))
+```
+
+
 
 ## Profil Ihres Studiengangs
 
