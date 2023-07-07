@@ -46,8 +46,24 @@ library(ggokabeito)
 
 ```{r import-data}
 d_url <- "https://drive.google.com/uc?export=download&id=11th3IKxaSxhhWw9U4sv1wT5J0mTVN6eJeWbp0S9ngGA"
-d <- read_csv("data/WiPsy-Bachelor-Bayern-Präsenz.csv")
 d <- read_sheet(d_url)
+
+d_geo <- read_csv("data/wipsy-geo.csv")
+
+d <-
+  d %>% 
+  left_join(d_geo)
+```
+
+
+```{r}
+#| eval: false
+# wipsy_geo2 <- 
+#   wipsy_geo %>% 
+#   select(Ort, long, lat) %>% 
+#   distinct(Ort, .keep_all = TRUE)
+# 
+# write_csv(wipsy_geo2, "data/wipsy-geo.csv")
 ```
 
 
@@ -55,9 +71,13 @@ d <- read_sheet(d_url)
 
 
 ```{r map1}
+d2 <-
+  d %>% 
+  drop_na()
+
 m <- leaflet() %>% 
   addTiles() %>% 
-  addMarkers(lng = d$long, lat = d$lat)
+  addMarkers(lng = d2$long, lat = d2$lat)
 
 m
 ```
@@ -70,7 +90,8 @@ m
 ```{r map2}
 d_staatlich <-
   d %>% 
-  filter(staatlich == "staatlich")
+  filter(staatlich == "staatlich") %>% 
+  drop_na()
   
 m2 <- leaflet() %>% 
   addTiles() %>% 
@@ -87,6 +108,7 @@ m2
 ```{r}
 d %>% 
   select(Ort, Hochschulname, Bachelor, staatlich) %>% 
+  drop_na() %>% 
   count(staatlich) %>% 
   ggplot(aes(x = staatlich, y = n)) +
   geom_col(aes(fill = staatlich)) +
@@ -96,7 +118,7 @@ d %>%
  geom_label(aes(label = n))
 ```
 
-
+[Rohdaten](https://docs.google.com/spreadsheets/d/11th3IKxaSxhhWw9U4sv1wT5J0mTVN6eJeWbp0S9ngGA/edit?usp=sharing)
 
 ## Profil Ihres Studiengangs
 
