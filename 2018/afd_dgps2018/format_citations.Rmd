@@ -1,0 +1,9 @@
+---
+title: "Predictors of AfD party success in the 2017 elections"
+csl: "/Users/sebastiansaueruser/Documents/Literatur/ref_mgt/apa.csl"
+bibliography: "/Users/sebastiansaueruser/Documents/Literatur/ref_mgt/library.bib"
+---
+
+
+
+[@McElreath2016]
