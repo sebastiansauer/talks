@@ -1,0 +1,126 @@
+---
+title: "Warum Sie keine datenbasierten Entscheidungen treffen sollten"
+subtitle: "🙅‍♀🚫📊 ⬅️ ➡️ ❓ "
+bibliography: /Users/sebastiansaueruser/Google Drive/Literatur/refmgt/library-ses.bib
+format:
+  revealjs: 
+    theme: 
+      - night
+      - mytheme.scss
+    menu:
+      side: left
+    slide-number: true
+    date-format: long
+    mermaid: 
+      theme: neutral
+author: Sebastian Sauer
+institute: Hochschule Ansbach
+footer: "[causal-bizz](https://sebastiansauer.github.io/hate-speech-barometer/talks/bmt-2023/#/title-slide)"
+slide-number: true
+#date: 2024-01-24
+fig-align: center
+execute: 
+  echo: false
+  warning: false
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r setup}
+#| echo: false
+#| message: false
+
+library(dagitty)
+library(tidyverse)
+library(ggdag)
+```
+
+
+# Fallstudie 1: Webshop
+
+
+## Je länger im Webshop, desto höher der Umsatz
+
+
+
+>   Ich hab ein Muster in den Daten gefunden: Je länger ein Kunde in unserem Webshop ist, desto mehr Umsatz machen wir mit ihm. 
+
+![Wolfi](img/Wolfi.png){width=25%}
+
+
+
+
+
+
+
+
+
+## Länger im Webshop bleiben
+
+::::  {.columns style='display: flex !important; height: 90%;'}
+
+
+::: {.column width="50%"}
+
+>  Wir müssen also dafür sorgen, dass die Kunden lange im Webshop bleiben. 
+
+
+![Wolfi](img/Wolfi.png){width=10% fig-cap-location="center"}
+
+
+
+
+:::
+
+::: {.column width="50%" style='display: flex; justify-content: center; align-items: center;'}
+
+
+```{r km1}
+#| echo: false
+#| out-width: 100%
+#| label: Verweildauer --> Umsatz
+
+
+dag_km1 <-
+  dagitty("dag{
+          VD -> U
+          }
+      ")
+
+coordinates(dag_km1) <-
+  list(x = c(VD = 0, U = 1),
+       y = c(VD = 0, U = 0))
+
+
+ggdag(dag_km1) +
+  theme_dag_blank()
+```
+
+
+:::
+
+::::  
+
+
+
+
+
+
+
+
+
+# Anhang
+
+
+
+
+
+## Literatur
+
+
+
+
+## Bildnachweise
+
+- Icons sind von @itim2101 (Item-Pack Avatar-14)
