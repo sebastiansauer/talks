@@ -51,3 +51,10 @@ rsconnect/
 test*.*
 test.*
 
+# Media data:
+**/*.m4v
+
+
+
+
+
