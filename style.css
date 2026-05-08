@@ -1,0 +1,14 @@
+/* file: style.css */
+.v-center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+
+.center-text {
+  text-align: center;
+}
+
+

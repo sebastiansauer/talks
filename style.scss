@@ -1,0 +1,78 @@
+/*-- scss:mixins --*/
+
+@mixin btn-inverse {
+  transition-delay: 0s;
+  transition-duration: 0.15s;
+  transition-property: color;
+  transition-timing-function: ease-in;
+
+  &:hover {
+    background-color: $link-color;
+    color: rgb(250, 249, 240);
+  }
+}
+
+/*-- scss:defaults --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Sanchez:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+$font-family-sans-serif: "Dosis", sans-serif;
+$font-family-monospace: "Source Code Pro", monospace;
+$font-size-root: 20px;
+
+$colors: (
+  "red": #920402,
+  "orange": #C03c13,
+  "yellow": #cd5b07,
+  "brown-dark": #D19C8A,
+  "brown-light": #EBC09D,
+  "brown-white": #fdf8f4
+);
+
+@function theme-color($color) {
+  @return map-get($colors, $color);
+}
+
+$link-color: theme-color("red");
+$code-color: theme-color("orange");
+$body-bg: theme-color("brown-white");
+
+/*-- scss:rules --*/
+
+h1, h2, h3, h4, h5, h6 {
+  color: theme-color("yellow");
+  font-family: Sanchez, sans-serif;
+}
+
+div.quarto-about-jolla .about-link,
+.btn-links,
+.project-buttons>p>a {
+  border-style: solid;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  margin-right: 8px;
+  margin-bottom: 16px;
+  font-family: Commissioner;
+  text-transform: uppercase;
+  text-decoration-line: none;
+  display: inline-block;
+
+  @include btn-inverse;
+
+  i {
+    margin-right: 8px;
+  }
+}
+
+.slide-deck {
+  width: 100%;
+  aspect-ratio: 1.5;
+
+  border-style: solid;
+  border-width: 1px;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
