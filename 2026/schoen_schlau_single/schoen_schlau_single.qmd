@@ -6,7 +6,7 @@ format:
   revealjs:
     theme: dark
     slide-number: true
-    css: [default, style.scss]
+   # css: [default, style.scss]
 knitr:
   opts_chunk:
     #dev: png
@@ -61,29 +61,10 @@ focus_color = "black"
 
 👵
 
-„Naja“
+„Naja ...“
 
 :::
 
-
-
-::::
-
-
-:::::
-
-
-
-::::: columns
-::: {.column width="20%"}
-[👨🏾‍🦰]{.r-fit-text}
-Don
-::::
-
-:::: {.column width="80%"}
-[Ich bin schön und schlau.]{.r-fit-text}
-
-[Aber ich finde keine Frau!]{.r-fit-text}
 ::::
 :::::
 
@@ -524,7 +505,7 @@ p_coll3
 
 ---
 
-## Das doppelte "Filtern" erzeugt einen Schein-Zusammenhang
+## Schein-Zusammenhang durch Filtern
 
 ```{r}
 p_coll1
@@ -555,6 +536,7 @@ ggdag(schoen_schlau_dag, text = FALSE, use_labels = "label") +
 ## Filtern auf die gemeinsame Wirkung erzeugt Schein-Zusammenhang
 
 ```{r}
+p_dag_coll <- 
 ggdag_dseparated(
   schoen_schlau_dag,
   controlling_for = "m",
@@ -562,6 +544,8 @@ ggdag_dseparated(
   use_labels = "label"
 ) + 
   theme_dag()
+
+p_dag_coll
 ```
 
 
@@ -606,3 +590,148 @@ ggdag_dseparated(
 
 
 :::::
+
+
+---
+
+## Unabhängigkeit ($\perp$): Schönheit sagt nix über Schlauheit
+
+Bei Unabhängigkeit ($\perp$):
+
+Die Wahrscheinlichkeit ($Pr$), dass eine schlaue Person schön ist, 
+ist gleich zur Wahrscheinlichkeit, dass eine beliebig schlaue Person schön ist:
+
+$$\perp:  Pr(\text{schön}|\text{schlau}) = Pr(\text{schön})$$
+
+---
+
+## Unabhängigkeit: Erster Münzwurf sagt nichts über zweiten
+
+
+Bei *Un*abhängigkeit ($\perp$):
+
+Die Wahrscheinlichkeit ($Pr$), dass der zweite Wurf der Münze  *Zahl* zeigt, 
+wenn der erste Wurf *Zahl* gezeigt hat,
+ist gleich zur Wahrscheinlichkeit, dass
+der zweite Wurf *Zahl* zeigt, egal was der erste Wurf gezeigt hat.
+
+$$\perp:  Pr(\text{Münze 2 ist Zahl}|\text{Münze 1 ist Zahl}) = Pr(\text{Münze 2 ist Zahl})$$
+
+
+
+---
+
+## Abhängigkeit: Lernen und Klausurerfolg
+
+
+Bei Abhängigkeit:
+
+Die Wahrscheinlichkeit ($Pr$), die Prüfung zu bestehen,
+wenn man gelernt hat, 
+ist *nicht* gleich zur Wahrscheinlichkeit zu bestehen generell.
+
+$$\not\!\perp: Pr(\text{bestehen|gelernt} \neq Pr(\text{bestehen})$$
+
+::: footer
+[Beleg](https://statistik1.netlify.app/005-orga#was-ist-hier-das-erfolgsgeheimnis)
+
+:::
+
+
+---
+
+## Exkurs: Schönheit als "Struktur = Einfachheit + Komplexität"
+
+
+
+{{< video https://www.youtube.com/watch?v=Ujvy-DEA-UM&list=RDUjvy-DEA-UM&start_radio=1 width="100%" height="50%" >}}
+
+
+
+$$z_{n+1} = z^2_n + c$$
+
+
+::: footer
+[Quelle](https://de.wikipedia.org/wiki/Mandelbrot-Menge)
+:::
+
+
+---
+
+## Exkurs: Auch in der Natur "Struktur = Einfachheit + Komplexität"
+
+![](img/farn.JPG){width="50%" fig-align="center"}
+
+::: footer
+[Quelle: 4028mdk09, Wikipedia, CC-BY](https://de.wikipedia.org/wiki/Datei:Echter_Wurmfarn_2011.JPG)
+:::
+
+---
+
+## Fazit: Schein-Zusammenhang enttarnt durch genaues Hinschauen
+
+
+:::: columns
+::: {.column width="50%"}
+#### Schein
+
+```{r}
+p_coll1
+```
+
+:::
+
+::: {.column width="50%"}
+#### Erklärung
+```{r}
+p_dag_coll
+```
+
+
+:::
+::::
+
+
+---
+
+
+
+## 
+
+::::: columns
+
+:::: {.column width="48%"}
+
+
+::: {style="font-size: 2em; text-align: center"}
+🧑
+
+
+„Also ist Gott gerecht?!“
+
+
+:::
+::::
+
+
+
+
+
+:::: {.column width="48%"}
+
+::: {style="font-size: 2em; text-align: center"}
+
+👵
+
+„Zumindest hat Schönheit nix mit Schlauheit zu tun.“
+
+:::
+
+
+
+::::
+
+
+:::::
+
+
