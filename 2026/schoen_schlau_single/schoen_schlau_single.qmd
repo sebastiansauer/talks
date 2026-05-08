@@ -7,6 +7,7 @@ format:
     theme: dark
     slide-number: true
    # css: [default, style.scss]
+    auto-stretch: false
 knitr:
   opts_chunk:
     #dev: png
@@ -15,6 +16,10 @@ knitr:
     message: false
 execute:
   cache: true
+# title-slide-attributes:
+#   data-background-image: "img/qr.png"
+#   data-background-size: contain
+#   data-background-opacity: "0.3"
 ---
 
 
@@ -30,6 +35,39 @@ library(ggdag)
 ```{r}
 focus_color = "black"
 ```
+
+
+
+
+
+# 🎯  {.center}
+
+[Denkfehler verstehen]{.r-fit-text}
+
+
+---
+
+##  {.center}
+
+
+
+::: columns
+::: {.column width="20%"}
+[🧑{.r-fit-text}
+:::
+
+::: {.column width="80%"}
+[Don hängt die ganze Zeit auf Dating-Apps ab.]{.fs-1}
+
+[Ist aber Single, zu seinem Verdruss.]{.fs-1}
+
+:::
+:::
+
+
+---
+
+
 
 
 ##  {.center}
@@ -78,7 +116,7 @@ focus_color = "black"
 
 ::: columns
 ::: {.column width="20%"}
-[👨🏾‍🦰]{.r-fit-text}
+[🧑]{.r-fit-text}
 Don
 :::
 
@@ -360,7 +398,7 @@ cat(
 
 ---
 
-## 👨🏾‍🦰 Aber ich nehm nicht jede!
+## 🧑 Aber ich nehm nicht jede!
 
 
 ```{r}
@@ -734,4 +772,31 @@ p_dag_coll
 
 :::::
 
+---
 
+
+
+## 👋 Auf Wiedersehen!
+
+
+::: columns
+::: {.column width="50%"}
+Bei Fragen gerne melden:
+
+<sebastian.sauer@hs-ansbach.de>
+:::
+
+
+
+
+::: {.column width="30%"}
+![](img/qr.png)
+Folien zum Vortrag
+:::
+:::
+
+
+
+::: footer
+<https://sebastiansauer.github.io/talks/2026/schoen_schlau_single/schoen_schlau_single.html>
+:::
