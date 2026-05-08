@@ -698,7 +698,7 @@ $$z_{n+1} = z^2_n + c$$
 
 ## Exkurs: Auch in der Natur "Struktur = Einfachheit + Komplexität"
 
-![](img/farn.JPG){width="50%" fig-align="center"}
+![](img/farn.JPG){width="30%" fig-align="center"}
 
 ::: footer
 [Quelle: 4028mdk09, Wikipedia, CC-BY](https://de.wikipedia.org/wiki/Datei:Echter_Wurmfarn_2011.JPG)
