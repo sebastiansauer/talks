@@ -780,7 +780,7 @@ p_dag_coll
 
 
 ::: columns
-::: {.column width="50%"}
+::: {.column width="70%"}
 Bei Fragen gerne melden:
 
 <sebastian.sauer@hs-ansbach.de>
@@ -789,7 +789,7 @@ Bei Fragen gerne melden:
 
 
 
-::: {.column width="30%"}
+::: {.column width="20%"}
 ![](img/qr.png)
 Folien zum Vortrag
 :::
