@@ -13,7 +13,8 @@ knitr:
     echo: false
     #dev.args: { bg: "transparent" }
     message: false
-
+execute:
+  cache: true
 ---
 
 
@@ -22,10 +23,7 @@ knitr:
 
 ```{r}
 library(tidyverse)
-library(tinytable)
-library(DT)
-library(reactable)
-library(knitr)
+library(ggdag)
 ```
 
 
@@ -35,6 +33,44 @@ focus_color = "black"
 
 
 ##  {.center}
+
+
+
+::::: columns
+
+:::: {.column width="48%"}
+
+
+::: {style="font-size: 2em; text-align: center"}
+🧑
+
+
+„Ich bin schön und schlau, aber finde keine Frau!“
+
+
+:::
+::::
+
+
+
+
+
+:::: {.column width="48%"}
+
+::: {style="font-size: 2em; text-align: center"}
+
+👵
+
+„Naja“
+
+:::
+
+
+
+::::
+
+
+:::::
 
 
 
@@ -115,26 +151,95 @@ p_vierfelder
 
 
 
----
 
-## Ein Rendezvous, vier Möglichkeiten
+<!-- ## Ein Rendezvous, vier Möglichkeiten -->
 
-</br>
-</br>
-
-
-|                    | Schön +                 | Nicht schön -                  |
-|--------------------|-------------------------|--------------------------------|
-| **Schlau +**       | **schön und schlau**    | schlau und nicht schön         |
-| **Nicht schlau -** | nicht schlau und schön  | **nicht schlau und nicht schön** |
+<!-- </br> -->
+<!-- </br> -->
 
 
----
+<!-- |                    | Schön +                 | Nicht schön -                  | -->
+<!-- |--------------------|-------------------------|--------------------------------| -->
+<!-- | **Schlau +**       | **schön und schlau**    | schlau und nicht schön         | -->
+<!-- | **Nicht schlau -** | nicht schlau und schön  | **nicht schlau und nicht schön** | -->
+
+
+<!-- --- -->
 
 ## Die Schönen sind nicht schlau, und die Schlauen nicht schön?
 
 
-![](img/schoen_schlau_zshg.png){fig-align="center" width="60%"}
+```{r}
+myf <- function(x) -x+0.75
+
+myf2 <- function(x) -x + 1.25
+
+n <- 1e3
+
+set.seed(42)
+d2 <- tibble(
+  x = runif(n),
+  y = runif(n),
+  status = case_when(
+    y > myf(x) | y < myf2(x) ~ TRUE,
+    TRUE ~ FALSE
+  )
+)
+
+d2 <- d2 %>% 
+  mutate(
+    status_label = ifelse(status, "Date", "kein Date"),
+    symbol = ifelse(status, "✓", "✗")
+  )
+
+myf <- function(x) -x + 0.75
+myf2 <- function(x) -x + 1.25
+
+n <- 1e3
+
+set.seed(42)
+
+d2 <- tibble(
+  x = runif(n),
+  y = runif(n)
+) %>% 
+mutate(
+    status = xor(
+      y < myf(x),
+      y < myf2(x)
+    )
+  ) %>% 
+  mutate(
+    status_label = ifelse(status, "Date", "kein Date"),
+    symbol = ifelse(status, "✓", "✗")
+  )
+
+p_coll1 <- 
+  d2 %>% 
+  ggplot(aes(x = x, y = y, color = status_label, label = symbol)) +
+  geom_text() +
+  scale_color_manual(
+    values = c("kein Date" = "grey80",
+               "Date" = "black"),
+    guide = guide_legend(
+      override.aes = list(label = c("✓", "✗"))
+    )
+  ) +
+  theme_minimal() +
+  labs(
+    x = "Schönheit",
+    y = "Schlauheit",
+    color = NULL
+  ) +
+    theme(legend.position = "bottom",
+          axis.text = element_blank(),
+           axis.ticks = element_blank(),
+          panel.border = element_blank())
+
+p_coll1
+```
+
+
 
 ---
 
@@ -153,7 +258,62 @@ p_vierfelder
 ## Die Schönen sind genauso schlau wie die Nicht-Schönen
 
 
-![](img/schoen_schlau_kein_zshg.png){fig-align="center" width="60%"}
+```{r}
+myf <- function(x) -x+0.75
+
+myf2 <- function(x) -x + 1.25
+
+n <- 1e3
+
+set.seed(42)
+d2 <- tibble(
+  x = runif(n),
+  y = runif(n),
+  status = case_when(
+    y > myf(x) | y < myf2(x) ~ TRUE,
+    TRUE ~ FALSE
+  )
+)
+
+d2 <- d2 %>% 
+  mutate(
+    status_label = ifelse(status, "Date", "kein Date"),
+    symbol = ifelse(status, "✓", "✗")
+  )
+
+myf <- function(x) -x + 0.75
+myf2 <- function(x) -x + 1.25
+
+n <- 1e3
+
+set.seed(42)
+
+d2 <- tibble(
+  x = runif(n),
+  y = runif(n)
+) 
+
+p_coll0 <- 
+  d2 %>% 
+  ggplot() +
+  aes(x  = x,
+      y = y) +
+  geom_point() +
+ # scale_color_manual(values = c("grey80", "black")) +
+  theme_minimal() +
+  labs(x = "Schönheit",
+       y = "Schlauheit") +
+    theme(legend.position = "bottom",
+          axis.text = element_blank(),
+           axis.ticks = element_blank(),
+          panel.border = element_blank())
+
+
+p_coll0
+```
+
+
+
 
 
 ---
@@ -166,10 +326,13 @@ p_vierfelder
 ```
 
 
+---
+
 ## Ziehen Sie einen Zettel für Schönheit und einen für Schlauheit
 
 
 ```{r}
+set.seed(20260509)
 schoen_schlau <-
   tibble(
     schoen = rnorm(30),
@@ -184,13 +347,15 @@ schoen_schlau <-
 ### Schönheit
 
 ```{r}
-
 x <- round(schoen_schlau$schoen_pr, 2)
-x <- format(x, nsmal = 2)
+x_fmt <- sprintf("%5.2f", x)
 cat(
-  ifelse(seq_along(x) %% 10 == 0,
-         paste0(x, "\n"),
-         paste0(x, " "))
+  sapply(
+    split(x_fmt, ceiling(seq_along(x_fmt) / 10)),
+    paste,
+    collapse = " "
+  ),
+  sep = "\n"
 )
 ```
 
@@ -198,3 +363,246 @@ cat(
 
 ### Schlauheit
 
+```{r}
+x <- round(schoen_schlau$schlau_pr, 2)
+x_fmt <- sprintf("%5.2f", x)
+cat(
+  sapply(
+    split(x_fmt, ceiling(seq_along(x_fmt) / 10)),
+    paste,
+    collapse = " "
+  ),
+  sep = "\n"
+)
+```
+
+
+---
+
+## 👨🏾‍🦰 Aber ich nehm nicht jede!
+
+
+```{r}
+myf <- function(x) -x+0.75
+
+myf2 <- function(x) -x + 1.25
+
+n <- 1e3
+
+set.seed(42)
+d2 <- tibble(
+  x = runif(n),
+  y = runif(n),
+  status = case_when(
+    y > myf(x) | y < myf2(x) ~ TRUE,
+    TRUE ~ FALSE
+  )
+)
+
+d2 <- d2 %>% 
+  mutate(
+    status_label = ifelse(status, "Date", "kein Date"),
+    symbol = ifelse(status, "✓", "✗")
+  )
+
+myf <- function(x) -x + 0.75
+myf2 <- function(x) -x + 1.25
+
+n <- 1e3
+
+set.seed(42)
+
+d2 <- tibble(
+  x = runif(n),
+  y = runif(n)
+) %>% 
+  mutate(
+    status = !(y < myf(x) & y < myf2(x))
+  ) %>% 
+  mutate(
+    status_label = ifelse(status, "Date", "kein Date"),
+    symbol = ifelse(status, "✓", "✗")
+  )
+
+p_coll2 <- 
+  d2 %>% 
+  ggplot(aes(x = x, y = y, color = status_label, label = symbol)) +
+  geom_text() +
+  scale_color_manual(
+    values = c("kein Date" = "grey80",
+               "Date" = "black"),
+    guide = guide_legend(
+      override.aes = list(label = c("✓", "✗"))
+    )
+  ) +
+  labs(
+    x = "Schönheit",
+    y = "Schlauheit",
+    color = NULL
+  ) +
+  theme_minimal() +
+    theme(legend.position = "bottom",
+          axis.text = element_blank(),
+           axis.ticks = element_blank(),
+          panel.border = element_blank()) 
+
+p_coll2
+```
+
+---
+
+## Aber auch nicht jede nimmt Don
+
+
+
+```{r}
+myf <- function(x) -x+0.75
+
+myf2 <- function(x) -x + 1.25
+
+n <- 1e3
+
+set.seed(42)
+d2 <- tibble(
+  x = runif(n),
+  y = runif(n),
+  status = case_when(
+    y > myf(x) | y < myf2(x) ~ TRUE,
+    TRUE ~ FALSE
+  )
+)
+
+d2 <- d2 %>% 
+  mutate(
+    status_label = ifelse(status, "Date", "kein Date"),
+    symbol = ifelse(status, "✓", "✗")
+  )
+
+myf <- function(x) -x + 0.75
+myf2 <- function(x) -x + 1.25
+
+n <- 1e3
+
+set.seed(42)
+
+d2 <- tibble(
+  x = runif(n),
+  y = runif(n)
+) %>% 
+  mutate(
+    status = !(y > myf(x) & y > myf2(x))
+  ) %>% 
+  mutate(
+    status_label = ifelse(status, "Date", "kein Date"),
+    symbol = ifelse(status, "✓", "✗")
+  )
+
+p_coll3 <- 
+  d2 %>% 
+  ggplot(aes(x = x, y = y, color = status_label, label = symbol)) +
+  geom_text() +
+  scale_color_manual(
+    values = c("kein Date" = "grey80",
+               "Date" = "black"),
+    guide = guide_legend(
+      override.aes = list(label = c("✓", "✗"))
+    )
+  ) +
+  labs(
+    x = "Schönheit",
+    y = "Schlauheit",
+    color = NULL
+  ) +
+  theme_minimal() +
+    theme(legend.position = "bottom",
+          axis.text = element_blank(),
+           axis.ticks = element_blank(),
+          panel.border = element_blank()) 
+
+p_coll3
+```
+
+---
+
+## Das doppelte "Filtern" erzeugt einen Schein-Zusammenhang
+
+```{r}
+p_coll1
+```
+
+
+
+---
+
+
+## Schönheit und Schlauheit sind die Ursachen eines Rendezvous
+
+
+```{r}
+schoen_schlau_dag <-
+  collider_triangle(
+    x = "Schönheit",
+    y = "Schlauheit",
+    m = "Rendezvous"
+  )
+
+ggdag(schoen_schlau_dag, text = FALSE, use_labels = "label") +
+  theme_dag()
+```
+
+---
+
+## Filtern auf die gemeinsame Wirkung erzeugt Schein-Zusammenhang
+
+```{r}
+ggdag_dseparated(
+  schoen_schlau_dag,
+  controlling_for = "m",
+  text = FALSE,
+  use_labels = "label"
+) + 
+  theme_dag()
+```
+
+
+
+
+--- 
+
+## 
+
+::::: columns
+
+:::: {.column width="48%"}
+
+
+::: {style="font-size: 2em; text-align: center"}
+🧑
+
+
+„Was sagt uns das?“
+
+
+:::
+::::
+
+
+
+
+
+:::: {.column width="48%"}
+
+::: {style="font-size: 2em; text-align: center"}
+
+👵
+
+„Niemals die gemeinsame Wirkung filtern!“
+
+:::
+
+
+
+::::
+
+
+:::::
