@@ -800,3 +800,10 @@ Folien zum Vortrag
 ::: footer
 <https://sebastiansauer.github.io/talks/2026/schoen_schlau_single/schoen_schlau_single.html>
 :::
+
+
+
+```{r}
+write_csv(schoen_schlau, "schoen_schlau.csv")
+```
+
